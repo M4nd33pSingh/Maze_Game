@@ -48,7 +48,7 @@ class Node:
         return "|x={}, y={}| ".format(self.x, self.y)
 
 
-class Maze: # Todo: Why +1, if the extra is subtracted anyway?
+class Maze: 
     def __init__(self, sizeX, sizeY):
         self.sizeX, self.sizeY = sizeX+1, sizeY+1
         self.nodes = [[Node(x, y, sizeX+1, sizeY+1) for x in range(sizeX+1)] for y in range(sizeY+1)]
