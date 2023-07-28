@@ -5,8 +5,6 @@ from model import Maze, Player
 from algo import Generator, Pathfinder
 
 
-
-
 class MazeGame:
     def __init__(self):
         self.maze, self.generator, self.mazeSpanningTree, self.player, self.pathfinder, self.solutionSize, \
@@ -168,15 +166,12 @@ class MazeGame:
                                       getDurTimeUnit(self.printDurTime)))
 
     def play(self):
-        inputMsg = "Press one key for intended direction and then enter- or return-key: \n" \
-                   "up ↑: w / 8 ┃ down ↓: s / 5 ┃ left ←: a / 4 ┃ right →: d / 6 ┃┃" \
-                   " show solution: 2 ┃ end game: 9 ┃┣ "
         isPlaying, isShowSolution, plyCounter, direction, marker, msg = True, False, 0, 0, "", ""
         columnModifier =  (0, 0, -1, 0, 1)
         rowModifier    =  (0, -1, 0, 1, 0)
         currentCell = self.maze.getNode(self.player.getPosX(), self.player.getPosY())
         while isPlaying:
-            match(input(inputMsg)):
+            match(input(GAME_INPUT_MSG)):
                 case '8' | 'w':
                     direction = 1
                     marker = " ↑ "
@@ -259,9 +254,8 @@ INFO = "\n{0:>39}\n{1:>29}\n{2:>36}\n{3:>58}\n\n{4}\n{5:>93}\n"\
      .format("Author: Mandeep Singh", "Version: 2.0", "Date: 28.07.2023", "GitHub: https://github.com/M4nd33pSingh/Maze_Game",
              "Ported from java version: https://github.com/M4nd33pSingh/Mazegame",
              "Maze-Game version 1: https://github.com/Malkogiannidou/MazeGame_MazeSolver_MazeGenerator")
-
 GAME_INPUT_MSG = "Press one key for intended direction and then enter- or return-key: \n" \
-                 "up ↑: w / 8 ┃ down ↓: s / 5 ┃ left ←: a / 4 ┃ right →: d / 6 ┃┃ show solution: 2 ┃ end game: 9 ┃┣ "
+                 "up ↑: w / 8 ┃ down ↓: s / 5 ┃ left ←: a / 4 ┃ right →: d / 6  ┃┃ show solution: 2 ┃ end game: 9 ┃┣ "
 CONGRATS_MSG = "\tCongratulations! You reached the target-cell after {} steps, which is {} the solution-path-length{}."
 
 def getDurTimeUnit(duration):
